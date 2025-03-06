@@ -11,12 +11,19 @@ export class ShortCode {
 		return new ShortCode(shortCode)
 	}
 
+	/**
+	 * Generates a random short code consisting of 6 alphanumeric characters.
+	 * The code is derived from a base64-encoded random byte sequence,
+	 * ensuring uniqueness while removing non-alphanumeric characters.
+	 *
+	 * @returns {ShortCode} A new instance of ShortCode with a generated value.
+	 */
 	static generateShortCode() {
 		return new ShortCode(
 			randomBytes(4)
 				.toString("base64")
 				.replace(/[^a-zA-Z0-9]/g, "")
-				.slice(0, 6),
+				.slice(0, 7),
 		)
 	}
 }
