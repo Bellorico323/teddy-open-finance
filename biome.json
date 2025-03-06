@@ -41,6 +41,9 @@
 				"noEmptyInterface": "warn",
 				"useAwait": "off",
 				"useValidTypeof": "error"
+			},
+			"complexity": {
+				"noStaticOnlyClass": "off"
 			}
 		}
 	}
