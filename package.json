@@ -6,9 +6,6 @@
 	"private": true,
 	"license": "UNLICENSED",
 	"type": "module",
-	"lint-staged": {
-		"**/*.ts": "biome check --write && git add ."
-	},
 	"scripts": {
 		"build": "nest build",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -64,5 +61,8 @@
 		"unplugin-swc": "^1.5.1",
 		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^3.0.7"
+	},
+	"lint-staged": {
+		"**/*.{js,ts,jsx,tsx,json,md,css}": ["biome check --write"]
 	}
 }
