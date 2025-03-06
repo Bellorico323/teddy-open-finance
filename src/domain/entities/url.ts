@@ -1,16 +1,16 @@
 import { Entity } from "@/core/entities/entity"
 import type { UniqueEntityID } from "@/core/entities/unique-entity-id"
 import type { Optional } from "@/core/types/optional"
-import { ShortCode } from "./value-objects/short-url"
+import { ShortCode } from "./value-objects/short-code"
 
-interface UrlProps {
+export interface UrlProps {
 	originalUrl: string
 	shortCode: ShortCode
 	clickCount: number
 	createdAt: Date
 	updatedAt?: Date | null
 	deletedAt?: Date | null
-	userId?: UniqueEntityID | null
+	clientId?: UniqueEntityID | null
 }
 
 export class Url extends Entity<UrlProps> {
@@ -36,6 +36,10 @@ export class Url extends Entity<UrlProps> {
 		return this.props.shortCode
 	}
 
+	get clientId() {
+		return this.props.clientId
+	}
+
 	get clickCount() {
 		return this.props.clickCount
 	}
@@ -46,12 +50,14 @@ export class Url extends Entity<UrlProps> {
 		this.touch()
 	}
 
-	touch() {
+	private touch() {
 		this.props.updatedAt = new Date()
 	}
 
 	delete() {
 		this.props.deletedAt = new Date()
+
+		this.touch()
 	}
 
 	static create(
