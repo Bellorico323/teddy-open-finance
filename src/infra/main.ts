@@ -13,6 +13,7 @@ async function bootstrap() {
 		.setDescription("API para o sistema Teddy Open Finance")
 		.setVersion("1.0")
 		.addTag("auth")
+		.addTag("url")
 		.build()
 
 	const documentFactory = () => SwaggerModule.createDocument(app, config)

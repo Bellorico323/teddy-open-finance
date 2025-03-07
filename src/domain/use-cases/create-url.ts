@@ -6,7 +6,7 @@ import { UrlsRepository } from "../repositories/urls-repository"
 
 interface CreateUrlUseCaseRequest {
 	originalUrl: string
-	clientId?: string
+	clientId?: string | null
 }
 
 type CreateUrlUseCaseResponse = Either<
