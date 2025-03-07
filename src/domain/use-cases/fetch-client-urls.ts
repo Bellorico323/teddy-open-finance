@@ -1,7 +1,7 @@
 import { type Either, right } from "@/core/either"
 import { Injectable } from "@nestjs/common"
-import type { Url } from "../entities/url"
-import type { UrlsRepository } from "../repositories/urls-repository"
+import { Url } from "../entities/url"
+import { UrlsRepository } from "../repositories/urls-repository"
 
 interface FetchClientUrlsUseCaseRequest {
 	clientId: string

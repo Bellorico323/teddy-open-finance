@@ -1,4 +1,4 @@
-import type { UniqueEntityID } from "@/core/entities/unique-entity-id"
+import { UniqueEntityID } from "@/core/entities/unique-entity-id"
 import { Client, type ClientProps } from "@/domain/entities/client"
 import { faker } from "@faker-js/faker"
 

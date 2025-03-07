@@ -6,3 +6,29 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  password String
+
+  urls Url[]
+
+  @@map("users")
+}
+
+model Url {
+    id          String    @id @default(uuid())
+    originalUrl String    @map("original_url")
+    shortCode   String    @unique @map("short_code")
+    clickCount  Int       @map("click_count")
+    createdAt   DateTime  @default(now()) @map("created_at")
+    updatedAt   DateTime? @updatedAt @map("updated_at")
+    deletedAt   DateTime? @map("deleted_at")
+
+    userId      String?   @map("user_id")
+    user        User?     @relation(fields: [userId], references: [id])
+
+    @@map("urls")
+}

@@ -2,8 +2,8 @@ import { type Either, left, right } from "@/core/either"
 import { NotAllowedError } from "@/core/errors/errors/not-allowed-error"
 import { ResourceNotFoundError } from "@/core/errors/errors/resource-not-found-error"
 import { Injectable } from "@nestjs/common"
-import type { Url } from "../entities/url"
-import type { UrlsRepository } from "../repositories/urls-repository"
+import { Url } from "../entities/url"
+import { UrlsRepository } from "../repositories/urls-repository"
 
 interface EditUrlUseCaseRequest {
 	originalUrl: string
@@ -33,7 +33,7 @@ export class EditUrlUseCase {
 			return left(new ResourceNotFoundError())
 		}
 
-		if (clientId !== url.clientId.toString()) {
+		if (!url.clientId || clientId !== url.clientId.toString()) {
 			return left(new NotAllowedError())
 		}
 
