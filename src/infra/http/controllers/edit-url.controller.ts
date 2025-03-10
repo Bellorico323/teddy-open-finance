@@ -14,6 +14,7 @@ import {
 	Patch,
 } from "@nestjs/common"
 import {
+	ApiBearerAuth,
 	ApiBody,
 	ApiOperation,
 	ApiParam,
@@ -38,6 +39,7 @@ export class EditUrlController {
 
 	@Patch()
 	@HttpCode(204)
+	@ApiBearerAuth()
 	@ApiOperation({ summary: "Edit an existing URL" })
 	@ApiParam({
 		name: "id",

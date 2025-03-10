@@ -12,7 +12,13 @@ import {
 	NotFoundException,
 	Param,
 } from "@nestjs/common"
-import { ApiOperation, ApiParam, ApiResponse, ApiTags } from "@nestjs/swagger"
+import {
+	ApiBearerAuth,
+	ApiOperation,
+	ApiParam,
+	ApiResponse,
+	ApiTags,
+} from "@nestjs/swagger"
 
 @Controller("/urls/:id")
 @ApiTags("url")
@@ -21,6 +27,7 @@ export class DeleteUrlController {
 
 	@Delete()
 	@HttpCode(204)
+	@ApiBearerAuth()
 	@ApiOperation({ summary: "Delete an existing URL" })
 	@ApiParam({
 		name: "id",

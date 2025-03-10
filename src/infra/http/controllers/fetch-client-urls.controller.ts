@@ -2,7 +2,12 @@ import { FetchClientUrlsUseCase } from "@/domain/use-cases/fetch-client-urls"
 import { CurrentUser } from "@/infra/auth/current-user-decorator"
 import { UserPayload } from "@/infra/auth/jwt-strategy"
 import { BadRequestException, Controller, Get, Query } from "@nestjs/common"
-import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
+import {
+	ApiBearerAuth,
+	ApiOperation,
+	ApiResponse,
+	ApiTags,
+} from "@nestjs/swagger"
 import { z } from "zod"
 import { ZodValidationPipe } from "../pipes/zod-validation-pipe"
 import { UrlPresenter } from "../presenters/url-presenter"
@@ -23,6 +28,7 @@ export class FetchClientUrlsController {
 	constructor(private fetchClientUrls: FetchClientUrlsUseCase) {}
 
 	@Get()
+	@ApiBearerAuth()
 	@ApiOperation({ summary: "Fetch urls from user" })
 	@ApiResponse({
 		status: 200,
