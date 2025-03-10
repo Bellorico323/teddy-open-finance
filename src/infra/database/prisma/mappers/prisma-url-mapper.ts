@@ -21,12 +21,13 @@ export class PrismaUrlMapper {
 
 	static toPrisma(url: Url): Prisma.UrlUncheckedCreateInput {
 		return {
+			id: url.id.toString(),
 			originalUrl: url.originalUrl,
 			shortCode: url.shortCode.value,
 			clickCount: url.clickCount,
 			createdAt: url.createdAt,
 			updatedAt: url.updatedAt,
-			deletedAt: url.updatedAt,
+			deletedAt: url.deletedAt,
 			userId: url.clientId ? url.clientId.toString() : null,
 		}
 	}

@@ -22,7 +22,7 @@ export function makeUrl(override: Partial<UrlProps> = {}, id?: UniqueEntityID) {
 export class UrlFactory {
 	constructor(private prisma: PrismaService) {}
 
-	async makePrismaClient(data: Partial<UrlProps> = {}): Promise<Url> {
+	async makePrismaUrl(data: Partial<UrlProps> = {}): Promise<Url> {
 		const url = makeUrl(data)
 
 		await this.prisma.url.create({

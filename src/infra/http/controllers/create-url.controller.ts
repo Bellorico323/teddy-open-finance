@@ -8,7 +8,6 @@ import {
 	Controller,
 	HttpCode,
 	Post,
-	UsePipes,
 } from "@nestjs/common"
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
 import { zodToOpenAPI } from "nestjs-zod"
@@ -20,6 +19,7 @@ const createUrlBodySchema = z.object({
 })
 
 type CreateUrlBodySchema = z.infer<typeof createUrlBodySchema>
+const bodyValidationPipe = new ZodValidationPipe(createUrlBodySchema)
 
 @Controller("/urls")
 @Public()
@@ -42,12 +42,12 @@ export class CreateUrlController {
 		status: 400,
 		description: "Invalid input data",
 	})
-	@UsePipes(new ZodValidationPipe(createUrlBodySchema))
 	async handle(
-		@Body() body: CreateUrlBodySchema,
-		@CurrentUser() user?: UserPayload | undefined,
+		@Body(bodyValidationPipe) body: CreateUrlBodySchema,
+		@CurrentUser() user?: UserPayload,
 	) {
 		const { originalUrl } = body
+
 		const result = await this.createUrl.execute({
 			originalUrl,
 			clientId: user?.sub ?? null,
