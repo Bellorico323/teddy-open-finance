@@ -1,13 +1,46 @@
 services:
-  postgres:
-    container_name: teddy-open-finance
+  postgres_db:
     image: postgres
-    ports:
-      - ${DB_PORT}:${DB_PORT}
+    hostname: postgres_db
+    container_name: postgres_db
+    restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
       PGDATA: /data/postgres
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    networks:
+      - teddy-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prisma -d postgres"]
+      interval: 5s
+      timeout: 2s
+      retries: 20
     volumes:
-      - ./data/pg:/data/postgres
+      - db:/var/lib/postgres
+
+  api-teddy:
+    build:
+      context: .
+    container_name: teddy-api
+    image: teddy-api
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - teddy-network
+
+networks:
+  teddy-network:
+    name: teddy-network
+
+volumes:
+  db:

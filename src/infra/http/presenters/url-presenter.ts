@@ -1,11 +1,18 @@
 import { Url } from "@/domain/entities/url"
+import { EnvService } from "@/infra/env/env.service"
+import { Injectable } from "@nestjs/common"
 
+@Injectable()
 export class UrlPresenter {
-	static toHTTP(url: Url) {
+	constructor(private envService: EnvService) {}
+
+	private baseUrl = this.envService.get("API_URL")
+
+	toHTTP(url: Url) {
 		return {
 			id: url.id.toString(),
 			originalUrl: url.originalUrl,
-			shortCode: url.shortCode.value,
+			shortUrl: `${this.baseUrl}/${url.shortCode.value}`,
 			clickCount: url.clickCount,
 			createdAt: url.createdAt,
 			updatedAt: url.updatedAt,

@@ -28,9 +28,9 @@ export class AuthenticateController {
 	constructor(private authenticateClient: AuthenticateClientUseCase) {}
 
 	@Post()
-	@ApiOperation({ summary: "Authenticate an user" })
+	@ApiOperation({ summary: "Authenticate a user" })
 	@ApiBody({
-		description: "Payload to authentica an user",
+		description: "Payload to authenticate a user",
 		schema: zodToOpenAPI(authenticateBodySchema),
 	})
 	@ApiResponse({

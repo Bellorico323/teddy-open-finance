@@ -23,7 +23,7 @@ export class ShortCode {
 			randomBytes(4)
 				.toString("base64")
 				.replace(/[^a-zA-Z0-9]/g, "")
-				.slice(0, 7),
+				.slice(0, 6),
 		)
 	}
 }

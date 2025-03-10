@@ -41,6 +41,9 @@ importers:
       passport-jwt:
         specifier: ^4.0.1
         version: 4.0.1
+      prisma:
+        specifier: ^6.4.1
+        version: 6.4.1(typescript@5.8.2)
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -105,9 +108,6 @@ importers:
       lint-staged:
         specifier: ^15.4.3
         version: 15.4.3
-      prisma:
-        specifier: ^6.4.1
-        version: 6.4.1(typescript@5.8.2)
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21

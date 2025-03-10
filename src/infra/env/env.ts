@@ -9,6 +9,7 @@ export const envSchema = z.object({
 	DB_NAME: z.string(),
 	DB_USER: z.string(),
 	PORT: z.coerce.number().default(3000),
+	API_URL: z.string().url(),
 })
 
 export type Env = z.infer<typeof envSchema>

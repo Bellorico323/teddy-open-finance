@@ -25,7 +25,10 @@ type PageQueryParamSchema = z.infer<typeof pageQueryParamSchema>
 @Controller("/urls")
 @ApiTags("url")
 export class FetchClientUrlsController {
-	constructor(private fetchClientUrls: FetchClientUrlsUseCase) {}
+	constructor(
+		private fetchClientUrls: FetchClientUrlsUseCase,
+		private urlPresenter: UrlPresenter,
+	) {}
 
 	@Get()
 	@ApiBearerAuth()
@@ -39,7 +42,27 @@ export class FetchClientUrlsController {
 				urls: {
 					type: "array",
 					items: {
-						type: "string",
+						type: "object",
+						properties: {
+							id: {
+								type: "string",
+								example: "123e4567-e89b-12d3-a456-426614174000",
+							},
+							originalUrl: { type: "string", example: "https://example.com" },
+							shortCode: { type: "string", example: "abc123" },
+							clickCount: { type: "number", example: 0 },
+							createdAt: {
+								type: "string",
+								format: "date-time",
+								example: "2025-03-10T12:34:56.789Z",
+							},
+							updatedAt: {
+								type: "string",
+								format: "date-time",
+								example: "2025-03-10T12:34:56.789Z",
+							},
+							clientId: { type: "string", nullable: true, example: "user-123" },
+						},
 					},
 				},
 			},
@@ -63,6 +86,6 @@ export class FetchClientUrlsController {
 
 		const urls = result.value.urls
 
-		return { urls: urls.map(UrlPresenter.toHTTP) }
+		return { urls: urls.map(this.urlPresenter.toHTTP) }
 	}
 }

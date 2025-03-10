@@ -13,6 +13,7 @@ import { ApiBody, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
 import { zodToOpenAPI } from "nestjs-zod"
 import { z } from "zod"
 import { ZodValidationPipe } from "../pipes/zod-validation-pipe"
+import { UrlPresenter } from "../presenters/url-presenter"
 
 const createUrlBodySchema = z.object({
 	originalUrl: z.string(),
@@ -25,7 +26,10 @@ const bodyValidationPipe = new ZodValidationPipe(createUrlBodySchema)
 @Public()
 @ApiTags("url")
 export class CreateUrlController {
-	constructor(private createUrl: CreateUrlUseCase) {}
+	constructor(
+		private createUrl: CreateUrlUseCase,
+		private urlPresenter: UrlPresenter,
+	) {}
 
 	@Post()
 	@HttpCode(201)
@@ -36,8 +40,37 @@ export class CreateUrlController {
 	})
 	@ApiResponse({
 		status: 201,
-		description: "Account created successfully",
+		description: "URL created successfully",
+		schema: {
+			type: "object",
+			properties: {
+				url: {
+					type: "object",
+					properties: {
+						id: {
+							type: "string",
+							example: "123e4567-e89b-12d3-a456-426614174000",
+						},
+						originalUrl: { type: "string", example: "https://example.com" },
+						shortCode: { type: "string", example: "abc123" },
+						clickCount: { type: "number", example: 0 },
+						createdAt: {
+							type: "string",
+							format: "date-time",
+							example: "2025-03-10T12:34:56.789Z",
+						},
+						updatedAt: {
+							type: "string",
+							format: "date-time",
+							example: "2025-03-10T12:34:56.789Z",
+						},
+						clientId: { type: "string", nullable: true, example: "user-123" },
+					},
+				},
+			},
+		},
 	})
+
 	@ApiResponse({
 		status: 400,
 		description: "Invalid input data",
@@ -54,6 +87,12 @@ export class CreateUrlController {
 		})
 		if (result.isLeft()) {
 			throw new BadRequestException()
+		}
+
+		const { url } = result.value
+
+		return {
+			url: this.urlPresenter.toHTTP(url),
 		}
 	}
 }
