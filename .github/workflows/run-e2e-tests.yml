@@ -15,7 +15,7 @@ jobs:
         env:
           POSTGRESQL_USERNAME: ${{ vars.E2E_DB_USER }}
           POSTGRESQL_PASSWORD: ${{ vars.E2E_DB_NAME }}
-          POSTGRESQL_DATABASE: ${{ vars.E2E_DB }}
+          POSTGRESQL_DATABASE: ${{ vars.E2E_DB_NAME }}
 
     steps:
     - name: Checkout
