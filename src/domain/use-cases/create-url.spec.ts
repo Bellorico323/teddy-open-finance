@@ -16,7 +16,7 @@ describe("Create URL", () => {
 		})
 
 		expect(result.isRight()).toBe(true)
-		expect(result.value.url.clientId).toBeNull()
+		expect(result.value?.url.clientId).toBeNull()
 		expect(inMemoryUrlsRepository.items[0].originalUrl).toEqual(
 			"https://test-url.com",
 		)
@@ -29,7 +29,7 @@ describe("Create URL", () => {
 		})
 
 		expect(result.isRight()).toBeTruthy()
-		expect(inMemoryUrlsRepository.items[0].clientId.toValue()).toEqual("1")
+		expect(inMemoryUrlsRepository.items[0].clientId?.toValue()).toEqual("1")
 	})
 
 	it("should be able to create a short code for URL", async () => {
