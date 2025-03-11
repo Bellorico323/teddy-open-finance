@@ -4,25 +4,29 @@ on: [push]
 
 jobs:
   run-unit-tests:
-    name: Run Unit Tests
+    name: 'Run Unit Tests'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Install pnpm
+    - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
         version: 9
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: 'pnpm'
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'pnpm'
 
-      - run: pnpm ci
+    - name: Install dependencies
+      run: pnpm ci
 
-      - name: Lint
+    - name: Lint
       run: pnpm lint:ci
 
-      - run: pnpm run test
+    - name: Test
+      run: pnpm test

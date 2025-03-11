@@ -2,8 +2,8 @@ FROM node:22-alpine AS base
 
 # Config PNPM
 ENV PNPM_HOME="/pnpm"
-ENV PATH="${PNPM_HOME}:${PATH}"
-RUN corepack enable
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack install -g pnpm@latest-10
 
 WORKDIR /usr/src/app
 COPY . . 
