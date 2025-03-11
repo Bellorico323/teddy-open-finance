@@ -1,3 +1,32 @@
+# [1.2.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.1.0...v1.2.0) (2025-03-11)
+
+
+### Bug Fixes
+
+* add bearer auth in swagger ([8272bdd](https://github.com/Bellorico323/teddy-open-finance/commit/8272bdd81a5636f7ce6b104dfa1fa925b5861f8e))
+* adds husky config ([ed65559](https://github.com/Bellorico323/teddy-open-finance/commit/ed655592e911f28fff8b3e7183363e00f4ff8614))
+* adds husky to workflow ([b8037eb](https://github.com/Bellorico323/teddy-open-finance/commit/b8037eb13b24372f33da68b63cf194c56e30e9f3))
+* adds lint-staged ([0e10da2](https://github.com/Bellorico323/teddy-open-finance/commit/0e10da22edbabe5c2b4844949555ab36691b74d1))
+* authentication controllers e2e tests ([7fb5cc1](https://github.com/Bellorico323/teddy-open-finance/commit/7fb5cc14352119956d6a1d8067ee3623e8d8945b))
+* database E2e_DB_NAME ([83485fb](https://github.com/Bellorico323/teddy-open-finance/commit/83485fbcf993a787fcbcd49a896350ad96810c18))
+* env variables tests-e2e pipeline ([6933bdd](https://github.com/Bellorico323/teddy-open-finance/commit/6933bdd2f4b2926d51e541318bd68c9538ed8c59))
+* fetch-client-controller ([373acb2](https://github.com/Bellorico323/teddy-open-finance/commit/373acb2c052b7333d29ee9c2a071f8426b64b9a5))
+* fix ci workflow and dockerfile ([e817075](https://github.com/Bellorico323/teddy-open-finance/commit/e817075b61744a9453703c1d326607057fdd4d5a))
+* fix create url unit test ([cb85bf9](https://github.com/Bellorico323/teddy-open-finance/commit/cb85bf95ba8ca6bd095847e67210a892bfe26c21))
+* fix create-url unit test ([f0af1da](https://github.com/Bellorico323/teddy-open-finance/commit/f0af1da18b464b010bbc9563dc33109d09ba072e))
+* **imports:** removes import type for nest Ioc ([0f87f23](https://github.com/Bellorico323/teddy-open-finance/commit/0f87f230604ea9483bd1a46df1a80d65967c5c05))
+* lint-staged ([48b2ecd](https://github.com/Bellorico323/teddy-open-finance/commit/48b2ecdbc163200ef4475dd394fd36dd1510564a))
+* pnpm ci ([d51fda5](https://github.com/Bellorico323/teddy-open-finance/commit/d51fda5919747fcbaae7170c706e0adb96556365))
+* test husky ([26b20ba](https://github.com/Bellorico323/teddy-open-finance/commit/26b20ba0c277610b5fda96b95819e3d00bf36c4d))
+* workflow e2e ([9041eac](https://github.com/Bellorico323/teddy-open-finance/commit/9041eacea82f21951ab6c30c69884fcd9d4e05bf))
+
+
+### Features
+
+* auth controllers ([d05d430](https://github.com/Bellorico323/teddy-open-finance/commit/d05d430e8ed8adf69ba44b89668d3503c41d88ba))
+* ci for push and PR ([cf90c58](https://github.com/Bellorico323/teddy-open-finance/commit/cf90c589caa6587b540575dbaf46b4ab374884ed))
+* controllers layer ([fa7a07e](https://github.com/Bellorico323/teddy-open-finance/commit/fa7a07e1cb7eea6bb773bbfe791c20805ed12946))
+
 # [1.1.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.0.0...v1.1.0) (2025-03-06)
 
 
