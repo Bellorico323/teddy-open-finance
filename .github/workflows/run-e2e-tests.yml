@@ -18,21 +18,25 @@ jobs:
           POSTGRESQL_DATABASE: ${{ vars.E2E_DB }}
 
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Install pnpm
+    - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9
+        version: 10
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'pnpm'
 
-      - run: pnpm ci
+    - name: Install dependencies
+      run: pnpm ci
 
-      - run: pnpm run test:e2e
-        env:
-          JWT_SECRET: testing
-          DATABASE_URL: ${{ vars.E2E_DATABASE_URL }}
+    - name: Run E2E tests
+      run: pnpm run test:e2e
+      env:
+        JWT_SECRET: testing
+        DATABASE_URL: ${{ vars.E2E_DATABASE_URL }}
