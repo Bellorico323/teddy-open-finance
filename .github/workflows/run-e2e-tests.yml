@@ -11,10 +11,10 @@ jobs:
       postgres:
         image: bitnami/postgresql
         ports:
-          - ${{ vars.E2E_PORT }}:${{ vars.E2E_PORT }}
+          - ${{ vars.E2E_DB_PORT }}:${{ vars.E2E_DB_PORT }}
         env:
-          POSTGRESQL_USERNAME: ${{ vars.E2E_USERNAME }}
-          POSTGRESQL_PASSWORD: ${{ vars.E2E_USERNAME }}
+          POSTGRESQL_USERNAME: ${{ vars.E2E_DB_USER }}
+          POSTGRESQL_PASSWORD: ${{ vars.E2E_DB_NAME }}
           POSTGRESQL_DATABASE: ${{ vars.E2E_DB }}
 
     steps:
@@ -41,5 +41,11 @@ jobs:
     - name: Run E2E tests
       run: pnpm run test:e2e
       env:
-        JWT_SECRET: testing
         DATABASE_URL: ${{ vars.E2E_DATABASE_URL }}
+        JWT_PRIVATE_KEY: ${{ secrets.JWT_PRIVATE_KEY }}
+        JWT_PUBLIC_KEY: ${{ secrets.JWT_PUBLIC_KEY }}
+        DB_PORT: ${{ vars.E2E_DB_PORT }}
+        DB_PASSWORD: ${{ vars.E2E_DB_PASSWORD }}
+        DB_NAME: ${{ vars.E2E_DB_NAME }}
+        DB_USER: ${{ vars.E2E_DB_USER }}
+        API_URL: ${{ vars.API_URL }}
