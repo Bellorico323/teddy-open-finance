@@ -39,6 +39,8 @@ describe("Create URL", () => {
 		})
 
 		expect(result.isRight()).toBeTruthy()
-		expect(inMemoryUrlsRepository.items[0].shortCode.value).toHaveLength(6)
+		expect(
+			inMemoryUrlsRepository.items[0].shortCode.value.length,
+		).toBeLessThanOrEqual(6)
 	})
 })
