@@ -6,13 +6,12 @@ import { Injectable } from "@nestjs/common"
 export class UrlPresenter {
 	constructor(private envService: EnvService) {}
 
-	private baseUrl = this.envService.get("API_URL")
-
 	toHTTP(url: Url) {
+		const baseUrl = this.envService.get("API_URL")
 		return {
 			id: url.id.toString(),
 			originalUrl: url.originalUrl,
-			shortUrl: `${this.baseUrl}/${url.shortCode.value}`,
+			shortUrl: `${baseUrl}/${url.shortCode.value}`,
 			clickCount: url.clickCount,
 			createdAt: url.createdAt,
 			updatedAt: url.updatedAt,

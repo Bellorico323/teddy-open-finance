@@ -84,8 +84,8 @@ export class FetchClientUrlsController {
 			throw new BadRequestException()
 		}
 
-		const urls = result.value.urls
+		const { urls } = result.value
 
-		return { urls: urls.map(this.urlPresenter.toHTTP) }
+		return { urls: urls.map((url) => this.urlPresenter.toHTTP(url)) }
 	}
 }
