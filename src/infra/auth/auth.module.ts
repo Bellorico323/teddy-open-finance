@@ -14,7 +14,6 @@ import { JwtStrategy } from "./jwt-strategy"
 			imports: [EnvModule],
 			inject: [EnvService],
 			global: true,
-
 			useFactory(env: EnvService) {
 				const privateKey = env.get("JWT_PRIVATE_KEY")
 				const publicKey = env.get("JWT_PUBLIC_KEY")

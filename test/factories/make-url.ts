@@ -1,4 +1,4 @@
-import type { UniqueEntityID } from "@/core/entities/unique-entity-id"
+import { UniqueEntityID } from "@/core/entities/unique-entity-id"
 import { Url, type UrlProps } from "@/domain/entities/url"
 import { faker } from "@faker-js/faker"
 
