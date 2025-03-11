@@ -1,5 +1,5 @@
-import type { Client } from "@/domain/entities/client"
-import type { ClientsRepository } from "@/domain/repositories/clients-repository"
+import { Client } from "@/domain/entities/client"
+import { ClientsRepository } from "@/domain/repositories/clients-repository"
 
 export class InMemoryClientsRepository implements ClientsRepository {
 	public items: Client[] = []

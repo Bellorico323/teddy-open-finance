@@ -1,8 +1,8 @@
 import { type Either, left, right } from "@/core/either"
 import { Injectable } from "@nestjs/common"
-import type { HashGenerator } from "../criptography/hash-generator"
+import { HashGenerator } from "../criptography/hash-generator"
 import { Client } from "../entities/client"
-import type { ClientsRepository } from "../repositories/clients-repository"
+import { ClientsRepository } from "../repositories/clients-repository"
 import { ClientAlreadyExistsError } from "./errors/client-already-exists-error"
 
 interface RegisterClientUseCaseRequest {

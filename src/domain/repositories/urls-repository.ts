@@ -1,5 +1,5 @@
-import type { PaginationParams } from "@/core/repositories/pagination-params"
-import type { Url } from "../entities/url"
+import { PaginationParams } from "@/core/repositories/pagination-params"
+import { Url } from "../entities/url"
 
 export abstract class UrlsRepository {
 	abstract findById(id: string): Promise<Url | null>

@@ -22,6 +22,9 @@
 			"arrowParentheses": "always",
 			"bracketSpacing": true,
 			"bracketSameLine": true
+		},
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
 		}
 	},
 	"linter": {
@@ -34,7 +37,7 @@
 			"style": {
 				"useConst": "error",
 				"useExportType": "warn",
-				"useImportType": "warn"
+				"useImportType": "off"
 			},
 			"suspicious": {
 				"noEmptyBlock": "warn",

@@ -1,6 +1,6 @@
 import { Entity } from "@/core/entities/entity"
-import type { UniqueEntityID } from "@/core/entities/unique-entity-id"
-import type { Optional } from "@/core/types/optional"
+import { UniqueEntityID } from "@/core/entities/unique-entity-id"
+import { Optional } from "@/core/types/optional"
 import { ShortCode } from "./value-objects/short-code"
 
 export interface UrlProps {
@@ -26,6 +26,10 @@ export class Url extends Entity<UrlProps> {
 
 	get createdAt() {
 		return this.props.createdAt
+	}
+
+	get updatedAt() {
+		return this.props.updatedAt
 	}
 
 	get deletedAt() {

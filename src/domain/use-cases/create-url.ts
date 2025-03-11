@@ -2,11 +2,11 @@ import { type Either, right } from "@/core/either"
 import { UniqueEntityID } from "@/core/entities/unique-entity-id"
 import { Injectable } from "@nestjs/common"
 import { Url } from "../entities/url"
-import type { UrlsRepository } from "../repositories/urls-repository"
+import { UrlsRepository } from "../repositories/urls-repository"
 
 interface CreateUrlUseCaseRequest {
 	originalUrl: string
-	clientId?: string
+	clientId?: string | null
 }
 
 type CreateUrlUseCaseResponse = Either<

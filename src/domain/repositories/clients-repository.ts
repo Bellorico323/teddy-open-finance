@@ -1,4 +1,4 @@
-import type { Client } from "../entities/client"
+import { Client } from "../entities/client"
 
 export abstract class ClientsRepository {
 	abstract findByEmail(email: string): Promise<Client | null>

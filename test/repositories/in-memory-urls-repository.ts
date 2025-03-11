@@ -1,6 +1,6 @@
-import type { PaginationParams } from "@/core/repositories/pagination-params"
-import type { Url } from "@/domain/entities/url"
-import type { UrlsRepository } from "@/domain/repositories/urls-repository"
+import { PaginationParams } from "@/core/repositories/pagination-params"
+import { Url } from "@/domain/entities/url"
+import { UrlsRepository } from "@/domain/repositories/urls-repository"
 
 export class InMemoryUrlsRepository implements UrlsRepository {
 	public items: Url[] = []
