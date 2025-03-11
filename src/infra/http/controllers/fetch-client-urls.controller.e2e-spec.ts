@@ -4,8 +4,8 @@ import { INestApplication } from "@nestjs/common"
 import { JwtService } from "@nestjs/jwt"
 import { Test } from "@nestjs/testing"
 import request from "supertest"
-import { ClientFactory } from "test/factories/make-client"
-import { UrlFactory } from "test/factories/make-url"
+import { ClientFactory } from "test/factories/prisma/prisma-client-factory"
+import { UrlFactory } from "test/factories/prisma/prisma-url-factory"
 
 describe("Fetch client urls (e2e)", () => {
 	let app: INestApplication

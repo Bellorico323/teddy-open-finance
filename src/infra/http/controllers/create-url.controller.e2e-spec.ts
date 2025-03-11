@@ -5,7 +5,7 @@ import { INestApplication } from "@nestjs/common"
 import { JwtService } from "@nestjs/jwt"
 import { Test } from "@nestjs/testing"
 import request from "supertest"
-import { ClientFactory } from "test/factories/make-client"
+import { ClientFactory } from "test/factories/prisma/prisma-client-factory"
 
 describe("Create url (e2e)", () => {
 	let app: INestApplication

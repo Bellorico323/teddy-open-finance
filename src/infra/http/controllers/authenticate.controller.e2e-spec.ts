@@ -4,7 +4,7 @@ import { INestApplication } from "@nestjs/common"
 import { Test } from "@nestjs/testing"
 import { hash } from "bcryptjs"
 import request from "supertest"
-import { ClientFactory } from "test/factories/make-client"
+import { ClientFactory } from "test/factories/prisma/prisma-client-factory"
 
 describe("Authenticate (e2e)", () => {
 	let app: INestApplication
