@@ -51,7 +51,7 @@ jobs:
       run: docker build -t teddy-api:${{ steps.generate_tag.outputs.sha }} .
 
     - name: Semantic Release
-      if: success()
+      if: success() && github.ref == 'refs/heads/main'
       uses: cycjimmy/semantic-release-action@v4
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
