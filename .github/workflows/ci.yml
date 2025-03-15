@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - test/test-pipeline
 
 permissions:
   id-token: write
