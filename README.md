@@ -9,21 +9,19 @@
 
 ## 🚀 Como executar
 
-Clone o projeto e acesse a pasta do mesmo.
+1. Clone o projeto e acesse a pasta do mesmo.
 
 ```bash 
 $ git clone https://github.com/Bellorico323/teddy-open-finance.git
 $ cd teddy-open-finance
 ```
 
-### Passos para executar:
-
-1. Configure as variáveis de ambiente, criando um arquivo .env e ajustando-o com base no modelo fornecido no arquivo .env.example. Também foi fornecido um script para geração automática das variáveis ambientes, para utiliza-lo basta executar o seguinte comando:
+2. Configure as variáveis de ambiente criando um arquivo `.env` e ajustando-o conforme o modelo fornecido em `.env.example`. Também forneci um script para geração automática das variáveis de ambiente. Para utilizá-lo, execute o seguinte comando:
    
-   ```bash
-   $ bash ./scripts/setup.sh
-   ```
-3. Execute o comando abaixo para iniciar o ambiente com Docker:
+```bash
+$ bash ./scripts/setup.sh
+```
+3. Para iniciar o ambiente com Docker, execute o comando abaixo:
 
 ```bash
 # subir a aplicação com o docker
