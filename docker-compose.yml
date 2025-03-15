@@ -24,6 +24,7 @@ services:
   api-teddy:
     build:
       context: .
+      dockerfile: Dockerfile.dev
     container_name: teddy-api
     image: teddy-api
     ports:
