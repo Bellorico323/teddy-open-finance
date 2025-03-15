@@ -29,7 +29,7 @@ jobs:
     - name: Setup node
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 22
         cache: 'pnpm'
 
     - name: Install dependencies
@@ -53,11 +53,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build docker image
-      run: docker build -t morico2302/teddy-api:${{ steps.generate_tag.outputs.sha }} .
-
-    - name: Push image
-      run: docker push morico2302/teddy-api:${{ steps.generate_tag.outputs.sha }}
+    - name: Build and Push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: morico2302/teddy-api:${{ steps.generate_tag.outputs.sha }},morico2302/teddy-api:latest
 
     - name: Semantic Release
       if: success() && github.ref == 'refs/heads/main'
