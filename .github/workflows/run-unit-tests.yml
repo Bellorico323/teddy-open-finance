@@ -1,9 +1,6 @@
 name: Run Unit Tests
 
-on:
-  push:
-    branches-ignore:
-      - 'test/test-pipeline'
+on: [push]
 
 jobs:
   run-unit-tests:

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - test/test-pipeline
 
 permissions:
   id-token: write
@@ -53,7 +52,6 @@ jobs:
         EXCLUDE: "dist/,node_modules/,iac/,CHANGELOG.md,README.md"
         TARGET: /home/deploy
         SCRIPT_BEFORE: |
-          whoami
           sudo mkdir -p /home/deploy
           sudo chown -R $USER:$USER /home/deploy
           sudo chmod -R 755 /home/deploy
@@ -61,7 +59,7 @@ jobs:
           cd /home/deploy
           sudo bash /home/deploy/scripts/setup.sh
           sudo docker-compose down
-          sudo docker-compose up -d
+          sudo docker-compose up --build -d
               
     - name: Semantic Release
       if: success() && github.ref == 'refs/heads/main'
