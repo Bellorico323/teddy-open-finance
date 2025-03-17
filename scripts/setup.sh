@@ -73,6 +73,10 @@ DB_PASSWORD=$DB_PASSWORD
 
 # API
 API_URL="http://$IP:3000"
+
+# CORS
+CORS_ALLOWED_ORIGINS="*"
+
 EOL
 
 echo "✅ Arquivo .env criado com sucesso!"

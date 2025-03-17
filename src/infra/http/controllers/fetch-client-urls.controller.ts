@@ -32,6 +32,7 @@ export class FetchClientUrlsController {
 
 	@Get()
 	@ApiBearerAuth()
+	@ApiBearerAuth("access-token")
 	@ApiOperation({ summary: "Fetch urls from user" })
 	@ApiResponse({
 		status: 200,

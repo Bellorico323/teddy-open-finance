@@ -9,16 +9,23 @@ import {
 	Param,
 	Redirect,
 } from "@nestjs/common"
-import { ApiOperation, ApiParam, ApiResponse, ApiTags } from "@nestjs/swagger"
+import {
+	ApiBearerAuth,
+	ApiOperation,
+	ApiParam,
+	ApiResponse,
+	ApiTags,
+} from "@nestjs/swagger"
 
 @Controller("/urls/redirect/:shortCode")
+@Public()
 @ApiTags("url")
 export class RedirectUrlController {
 	constructor(private redirectUrl: RedirectUrlUseCase) {}
 
 	@Get()
-	@Public()
 	@Redirect()
+	@ApiBearerAuth("access-token")
 	@ApiOperation({ summary: "Redirect to the original URL based on short code" })
 	@ApiParam({
 		name: "shortCode",

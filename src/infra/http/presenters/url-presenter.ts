@@ -15,7 +15,7 @@ export class UrlPresenter {
 			clickCount: url.clickCount,
 			createdAt: url.createdAt,
 			updatedAt: url.updatedAt,
-			clientId: url.clientId,
+			clientId: url.clientId?.toString(),
 		}
 	}
 }

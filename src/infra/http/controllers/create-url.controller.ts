@@ -9,7 +9,13 @@ import {
 	HttpCode,
 	Post,
 } from "@nestjs/common"
-import { ApiBody, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
+import {
+	ApiBearerAuth,
+	ApiBody,
+	ApiOperation,
+	ApiResponse,
+	ApiTags,
+} from "@nestjs/swagger"
 import { zodToOpenAPI } from "nestjs-zod"
 import { z } from "zod"
 import { ZodValidationPipe } from "../pipes/zod-validation-pipe"
@@ -33,6 +39,7 @@ export class CreateUrlController {
 
 	@Post()
 	@HttpCode(201)
+	@ApiBearerAuth("access-token")
 	@ApiOperation({ summary: "Create a new url" })
 	@ApiBody({
 		description: "Payload to create a new url",
@@ -52,7 +59,7 @@ export class CreateUrlController {
 							example: "123e4567-e89b-12d3-a456-426614174000",
 						},
 						originalUrl: { type: "string", example: "https://example.com" },
-						shortCode: { type: "string", example: "abc123" },
+						shortUrl: { type: "string", example: "https://teddy-api/abc123" },
 						clickCount: { type: "number", example: 0 },
 						createdAt: {
 							type: "string",
