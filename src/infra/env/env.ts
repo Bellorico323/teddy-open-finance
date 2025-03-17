@@ -10,6 +10,7 @@ export const envSchema = z.object({
 	DB_USER: z.string(),
 	PORT: z.coerce.number().default(3000),
 	API_URL: z.string().url(),
+	CORS_ALLOWED_ORIGINS: z.string(),
 })
 
 export type Env = z.infer<typeof envSchema>

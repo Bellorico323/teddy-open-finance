@@ -27,7 +27,7 @@ export class DeleteUrlController {
 
 	@Delete()
 	@HttpCode(204)
-	@ApiBearerAuth()
+	@ApiBearerAuth("access-token")
 	@ApiOperation({ summary: "Delete an existing URL" })
 	@ApiParam({
 		name: "id",

@@ -66,3 +66,4 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 *-key.*
 private.pem
 public.pem
+*.dev.yml

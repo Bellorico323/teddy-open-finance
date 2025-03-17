@@ -39,7 +39,7 @@ export class EditUrlController {
 
 	@Patch()
 	@HttpCode(204)
-	@ApiBearerAuth()
+	@ApiBearerAuth("access-token")
 	@ApiOperation({ summary: "Edit an existing URL" })
 	@ApiParam({
 		name: "id",
