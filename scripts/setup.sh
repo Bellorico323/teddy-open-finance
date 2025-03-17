@@ -37,7 +37,7 @@ JWT_PRIVATE_KEY="$PRIVATE_KEY_BASE64"
 JWT_PUBLIC_KEY="$PUBLIC_KEY_BASE64"
 
 # Database (Prisma)
-DATABASE_URL="postgresql://\${DB_USER}:\${DB_PASSWORD}@postgres_db:\${DB_PORT}/\${DB_NAME}?schema=public"
+DATABASE_URL="postgresql://myuser:mypassword@postgres_db:5432/teddy-finance?schema=public"
 
 # Database variables
 DB_PORT=5432
