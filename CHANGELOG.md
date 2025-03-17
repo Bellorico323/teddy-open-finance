@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.3.0...v1.4.0) (2025-03-17)
+
+
+### Features
+
+* adds core ([4116aa8](https://github.com/Bellorico323/teddy-open-finance/commit/4116aa8e54f622502a8272c49b59ec82ff2f83d9))
+
 # [1.3.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.2.0...v1.3.0) (2025-03-17)
 
 
