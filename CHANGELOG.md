@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.2.0...v1.3.0) (2025-03-17)
+
+
+### Bug Fixes
+
+* dockerfile ([b0e4772](https://github.com/Bellorico323/teddy-open-finance/commit/b0e477208e609180a98b2de5a9113897801a28d0))
+* fix ci flow ([e86002c](https://github.com/Bellorico323/teddy-open-finance/commit/e86002ceb8920d0739c68bed3193c33ecedd3a3b))
+* update-pipeline ([bf4e026](https://github.com/Bellorico323/teddy-open-finance/commit/bf4e0262b3bbd6040083e10e99699a8659d973e0))
+
+
+### Features
+
+* Deploy to EC2 ([5d87275](https://github.com/Bellorico323/teddy-open-finance/commit/5d872758f723f15d1afdc783a07f324aa4c95812))
+* script for app setup ([de1855a](https://github.com/Bellorico323/teddy-open-finance/commit/de1855af4d91919ddcf1c21eb0da0854d46ea392))
+* setup iac cloud infra ([792294e](https://github.com/Bellorico323/teddy-open-finance/commit/792294ed68e26eb995ac5cdab4ecf395d8a59a81))
+
 # [1.2.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.1.0...v1.2.0) (2025-03-11)
 
 
