@@ -26,7 +26,23 @@ export class RedirectUrlController {
 	@Get()
 	@Redirect()
 	@ApiBearerAuth("access-token")
-	@ApiOperation({ summary: "Redirect to the original URL based on short code" })
+	@ApiOperation({
+		summary: "Redirect to the original URL based on short code",
+		description:
+			"**This route should be accessed from a browser! (callback url)**\n\n" +
+			"This is a redirection route (HTTP 302). When accessed in a browser, the user will be automatically redirected to the original URL. \n\n" +
+			"If called via an API client (Postman, cURL), the redirection may not work as expected." +
+			"**Example Usage in React:**\n\n" +
+			"```tsx\n" +
+			'import { useEffect } from "react";\n\n' +
+			"const RedirectComponent = () => {\n" +
+			"  useEffect(() => {\n" +
+			' 	window.open("http://localhost:3000/urls/redirect/21sda8", "_blank");\n' +
+			"  }, []);\n\n" +
+			"  return <p>Redirecting...</p>;\n" +
+			"};\n" +
+			"```",
+	})
 	@ApiParam({
 		name: "shortCode",
 		description: "Shortened URL identifier",
