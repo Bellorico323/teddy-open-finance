@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/Bellorico323/teddy-open-finance/compare/v1.4.0...v1.4.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* fix e2e pipeline ([dcc27d9](https://github.com/Bellorico323/teddy-open-finance/commit/dcc27d96d8d23051c936f359d203979f0c51a07d))
+* update Swagger documentation ([be102be](https://github.com/Bellorico323/teddy-open-finance/commit/be102bedcdcf886b8932be121bd940b65a90c4ae))
+
 # [1.4.0](https://github.com/Bellorico323/teddy-open-finance/compare/v1.3.0...v1.4.0) (2025-03-17)
 
 
