@@ -20,7 +20,7 @@ async function bootstrap() {
 
 	const config = new DocumentBuilder()
 		.setTitle("Teddy Open Finance")
-		.setDescription("API para o sistema Teddy Open Finance")
+		.setDescription("API for the Teddy Open Finance system")
 		.setVersion("1.0")
 		.addTag("auth")
 		.addTag("url")
